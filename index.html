@@ -17,56 +17,7 @@
         <button id="botao">Cadastrar</button>
     </div>
 
-    <script type="text/javascript">
-
-        var convidados = [
-            { nome: "Jessica de Oliveira" },
-            { nome: "Maria Clara Souza" },
-            { nome: "João Batista" }
-        ];
-
-        var elLista = document.getElementById("lista");
-        var elCampo = document.getElementById("campo");
-        var elBotao = document.getElementById("botao");
-
-        elBotao.onclick = () => {
-            var nome = elCampo.value;
-            convidados.push({ nome: nome });
-            elCampo.value = "";
-
-            listarConvidados();
-        }
-
-        function listarConvidados() {
-            elLista.innerHTML = "";
-
-            for (const convidado of convidados) {
-
-                var elConvidado = document.createElement("li");
-                var elNome = document.createTextNode(convidado.nome);
-
-                var elExcluir = document.createElement("a");
-                elExcluir.setAttribute("href", "#");
-
-                elExcluir.onclick = () => {
-                    convidados = convidados.filter((item) => {
-                        return item.nome !== convidado.nome;
-                    })
-
-                    listarConvidados();
-                }
-
-                var elExcluirTexto = document.createTextNode("Excluir");
-
-                elConvidado.appendChild(elNome);
-                elLista.appendChild(elConvidado);
-
-                elExcluir.appendChild(elExcluirTexto)
-                elConvidado.appendChild(elExcluir);
-            }
-        }
-        listarConvidados();
-
+    <script src="main.js">
 
     </script>
 </body>
