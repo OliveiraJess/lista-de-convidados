@@ -19,9 +19,9 @@
 
     <script type="text/javascript">
 
-        var lista = document.getElementById("lista");
-        var campo = document.getElementById("campo");
-        var botao = document.getElementById("botao");
+        var elLista = document.getElementById("lista");
+        var elCampo = document.getElementById("campo");
+        var elBotao = document.getElementById("botao");
 
 
         var convidados = [
@@ -29,6 +29,14 @@
             { id: 2, nome: "Maria Clara Souza", idade: 17 },
             { id: 3, nome: "João Batista", idade: 38 }
         ];
+
+        for (convidado of convidados) {
+            var elConvidado = document.createElement("li");
+            var elNome = document.createTextNode(convidado.nome);
+
+            elConvidado.appendChild(elNome);
+            elLista.appendChild(elConvidado);
+        }
 
     </script>
 </body>
