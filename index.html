@@ -25,18 +25,33 @@
 
 
         var convidados = [
-            { id: 1, nome: "Jessica de Oliveira", idade: 25 },
-            { id: 2, nome: "Maria Clara Souza", idade: 17 },
-            { id: 3, nome: "João Batista", idade: 38 }
+            { nome: "Jessica de Oliveira" },
+            { nome: "Maria Clara Souza" },
+            { nome: "João Batista" }
         ];
 
-        for (convidado of convidados) {
-            var elConvidado = document.createElement("li");
-            var elNome = document.createTextNode(convidado.nome);
+        function listarConvidados() {
+            elLista.innerHTML = "";
 
-            elConvidado.appendChild(elNome);
-            elLista.appendChild(elConvidado);
+            for (convidado of convidados) {
+                var elConvidado = document.createElement("li");
+                var elNome = document.createTextNode(convidado.nome);
+
+                elConvidado.appendChild(elNome);
+                elLista.appendChild(elConvidado);
+            }
         }
+        listarConvidados();
+
+        var adicionarConvidado = () => {
+            var nome = elCampo.value;
+            convidados.push({ nome: nome });
+            elCampo.value = "";
+            
+            listarConvidados();
+        }
+
+        elBotao.onclick = adicionarConvidado;
 
     </script>
 </body>
